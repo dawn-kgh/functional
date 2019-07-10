@@ -136,23 +136,3 @@ fun <T> FunList<T>.length(): Int {
 fun <T> T.println() {
     kotlin.io.println(this)
 }
-
-fun main() {
-    val list: FunList<Int> = FunList.Cons(1, FunList.Cons(2, FunList.Cons(3, FunList.Cons(4, FunList.Cons(5, FunList.Nil)))))
-    val list2: FunList<Double> = FunList.Cons(1.0, FunList.Cons(2.0, FunList.Cons(0.0, FunList.Cons(4.0, FunList.Cons(5.0, FunList.Nil)))))
-
-    list.sum().println()
-    list.drop(3).println()
-    list.dropWhile { 3 > it }.println()
-    list.init().println()
-    list.sum2().println()
-    list.sum3().println()
-
-    list2.product().println()
-    list2.product2().println()
-    list2.product3().println()
-
-    list.length().println()
-
-    list.reverse().println()
-}
