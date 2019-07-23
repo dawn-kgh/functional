@@ -117,7 +117,7 @@ fun <T> FunList<T>.reverse(): FunList<T> {
     }
 }
 
-fun <T, R> FunList<T>.foldRight2(acc: R, f: (R, T) -> R): R {
+    fun <T, R> FunList<T>.foldRight2(acc: R, f: (R, T) -> R): R {
     return reverse().foldLeft(acc) { _acc, i ->
         f(_acc, i)
     }
