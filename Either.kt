@@ -41,3 +41,10 @@ fun <E, A, B, C> Either<E, A>.map2(b: Either<E, B>, f: (A, B) -> C): Either<E, C
     }
 }
 
+fun <T> Either<Exception, T>.Try(f: () -> T): Either<Exception, T> =
+        try {
+            Right(f())
+        } catch (e: Exception) {
+            Left(e)
+        }
+
