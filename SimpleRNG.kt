@@ -1,5 +1,3 @@
-package io.funfun.redbook
-
 interface RNG {
     fun nextInt(): Pair<Int, RNG>
 }
