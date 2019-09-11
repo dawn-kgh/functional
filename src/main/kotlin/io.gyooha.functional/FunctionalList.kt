@@ -1,3 +1,5 @@
+package io.gyooha.functional
+
 sealed class FunList<out T> {
     data class Cons<out T>(val head: T, val tail: FunList<T>) : FunList<T>()
     object Nil : FunList<Nothing>()

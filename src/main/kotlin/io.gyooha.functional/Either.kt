@@ -1,4 +1,4 @@
-package io.funfun.redbook
+package io.gyooha.functional
 
 sealed class Either<out E, out T>
 data class Right<T>(val get: T) : Either<Nothing, T>()

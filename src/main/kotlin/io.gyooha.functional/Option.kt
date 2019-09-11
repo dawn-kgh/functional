@@ -1,4 +1,4 @@
-package io.funfun.redbook
+package io.gyooha.functional
 
 sealed class Option<out T>
 data class Some<out T>(val get: T) : Option<T>()

@@ -1,3 +1,5 @@
+package io.gyooha.functional
+
 sealed class Stream<out T> {
     data class Cons<out T>(val head: () -> T, val tail: () -> Stream<T>) : Stream<T>()
     object Empty : Stream<Nothing>()

@@ -1,4 +1,4 @@
-package io.funfun.redbook
+package io.gyooha.functional
 
 sealed class Input
 object Coin : Input()
@@ -7,9 +7,9 @@ object Turn : Input()
 data class Machine(val locked: Boolean, val candies: Int, val coins: Int)
 
 fun simulateMachine(
-    inputs: List<Input>
-): StateClass<Machine, Pair<Int, Int>> {
-    return StateClass { m ->
+        inputs: List<Input>
+): ClassState<Machine, Pair<Int, Int>> {
+    return ClassState { m ->
         val calculateMachine = inputs.fold(m) { acc, input ->
             when (input) {
                 is Coin -> {
@@ -34,6 +34,6 @@ fun simulateMachine(
 
 fun main() {
     simulateMachine(
-        listOf(Coin, Coin, Coin, Turn, Coin, Turn, Turn, Turn, Coin, Coin, Coin, Turn, Coin, Coin, Coin, Turn, Coin, Turn, Coin)
+            listOf(Coin, Coin, Coin, Turn, Coin, Turn, Turn, Turn, Coin, Coin, Coin, Turn, Coin, Coin, Coin, Turn, Coin, Turn, Coin)
     ).run(Machine(true, 5, 10)).also { println(it) }
 }

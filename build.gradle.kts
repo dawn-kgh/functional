@@ -32,5 +32,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = "io.gyooha.functional.MainKt"
+    mainClassName = "functional.MainKt"
 }

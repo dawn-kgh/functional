@@ -1,3 +1,5 @@
+package io.gyooha.functional
+
 interface RNG {
     fun nextInt(): Pair<Int, RNG>
 }
@@ -97,12 +99,12 @@ fun <A, B, C> map2(ra: Rand<A>, rb: Rand<B>, f: (A, B) -> C): Rand<C> = ClassSta
     val (a, rng2) = ra(rng)
     val (b, rng3) = rb(rng2)
     f(a, b) to rng3
-} .run
+}.run
 
 fun <A, B> both(ra: Rand<A>, rb: Rand<B>): Rand<Pair<A, B>> =
-    map2(ra, rb) { a, b ->
-        a to b
-    }
+        map2(ra, rb) { a, b ->
+            a to b
+        }
 
 val randIntDoule: Rand<Pair<Int, Double>> = both(int, ::double)
 val randDoubleInt: Rand<Pair<Double, Int>> = both(::double, int)
@@ -138,7 +140,7 @@ fun <A, B> mapByFlatMap(s: Rand<A>, f: (A) -> B): Rand<B> = flatMap(s) {
 }
 
 fun <A, B, C> map2ByFlatMap(ra: Rand<A>, rb: Rand<B>, f: (A, B) -> C): Rand<C> = flatMap(
-    ra
+        ra
 ) { a ->
     flatMap(rb) { b ->
         unit(f(a, b))
